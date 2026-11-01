@@ -92,8 +92,37 @@ contract Algorithms {
      * 题目描述：输入 [1, 3, 5] 与 [2, 4, 6]，输出升序排列的 [1, 2, 3, 4, 5, 6]
      */
     function mergeSortedArrays(uint256[] memory a, uint256[] memory b) public pure returns (uint256[] memory) {
-        // TODO: 请实现双指针归并排序算法
-        revert("TODO: Please implement mergeSortedArrays()");
+        uint256 lenA = a.length;
+        uint256 lenB = b.length;
+        uint256[] memory merged = new uint256[](lenA + lenB);
+        uint256 i = 0;
+        uint256 j = 0;
+        uint256 k = 0;
+
+        while (i < lenA && j < lenB) {
+            if (a[i] < b[j]) {
+                merged[k] = a[i];
+                i++;
+            } else {
+                merged[k] = b[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < lenA) {
+            merged[k] = a[i];
+            i++;
+            k++;
+        }
+
+        while (j < lenB) {
+            merged[k] = b[j];
+            j++;
+            k++;
+        }
+
+        return merged;
     }
 
     /**
