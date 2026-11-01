@@ -45,14 +45,46 @@ contract Algorithms {
         return result;
     }
 
+    function _charToVal(bytes1 c) private pure returns (uint256) {
+        if (c == "I") return 1;
+        if (c == "V") return 5;
+        if (c == "X") return 10;
+        if (c == "L") return 50;
+        if (c == "C") return 100;
+        if (c == "D") return 500;
+        if (c == "M") return 1000;
+        revert("Invalid Roman numeral");
+    }
+
     /**
      * @notice 3. 罗马数字转整数 (Roman to Integer)
      * 题目描述：输入 "LVIII"，输出 58；输入 "MCMXCIV"，输出 1994
      * 注意：在 Solidity 中处理减法时注意防范 uint256 下溢 (Underflow)
      */
     function romanToInt(string memory s) public pure returns (uint256) {
-        // TODO: 请实现罗马数字转整数
-        revert("TODO: Please implement romanToInt()");
+        bytes memory b = bytes(s);
+        uint256 len = b.length;
+        require(len > 0, "Empty string");
+        uint256 total = 0;
+        uint256 i = 0;
+
+        while (i < len) {
+            uint256 current = _charToVal(b[i]);
+
+            if (i + 1 < len) {
+                uint256 nextVal = _charToVal(b[i + 1]);
+                if (current < nextVal) {
+                    total += nextVal - current;
+                    i += 2;
+                    continue;
+                }
+            }
+
+            total += current;
+            i += 1;
+        }
+
+        return total;
     }
 
     /**
