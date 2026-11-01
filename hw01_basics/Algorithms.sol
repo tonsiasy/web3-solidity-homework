@@ -4,7 +4,7 @@ pragma solidity ^0.8.20;
 /**
  * @title Algorithms (学员实战练习)
  * @dev 作业1：5道算法题目
- * 
+ *
  * 请根据题目要求补全函数实现，并在本目录下运行 `forge test` 验证你的实现。
  */
 contract Algorithms {
@@ -13,8 +13,15 @@ contract Algorithms {
      * 题目描述：输入 "abcde"，输出 "edcba"
      */
     function reverseString(string memory s) public pure returns (string memory) {
-        // TODO: 请实现字符串反转逻辑
-        revert("TODO: Please implement reverseString()");
+        bytes memory strBytes = bytes(s);
+        uint256 len = strBytes.length;
+        for (uint256 i = 0; i < len / 2; i++) {
+            bytes1 temp = strBytes[i];
+            strBytes[i] = strBytes[len - 1 - i];
+            strBytes[len - 1 - i] = temp;
+        }
+
+        return string(strBytes);
     }
 
     /**
