@@ -62,8 +62,6 @@ contract Voting {
      */
     function getVotes(string calldata candidate) external view returns (uint256) {
         // 请返回候选人的得票数
-        if (!_isCandidate[candidate]) revert EmptyCandidateName();
-
         return _votes[candidate];
     }
 
