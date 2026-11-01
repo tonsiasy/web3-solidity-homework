@@ -131,7 +131,20 @@ contract Algorithms {
      * 返回值：(bool found, uint256 index)
      */
     function binarySearch(uint256[] memory arr, uint256 target) public pure returns (bool found, uint256 index) {
-        // TODO: 请实现二分查找算法
-        revert("TODO: Please implement binarySearch()");
+        if (arr.length == 0) return (false, 0);
+        uint256 low = 0;
+        uint256 high = arr.length;
+        while (low < high) {
+            uint256 mid = low + (high - low) / 2;
+            if (target == arr[mid]) {
+                return (true, mid);
+            } else if (arr[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+
+        return (false, 0);
     }
 }
