@@ -6,7 +6,7 @@ import {BeggingContract} from "./BeggingContract.sol";
 
 contract DeployBegging is Script {
     function run() external returns (BeggingContract) {
-        uint256 deployerPrivateKey = vm.envOr("PRIVATE_KEY", uint256(0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80));
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
 
         vm.startBroadcast(deployerPrivateKey);
         BeggingContract begging = new BeggingContract();
