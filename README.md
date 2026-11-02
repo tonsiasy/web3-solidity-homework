@@ -7,14 +7,16 @@
 ```text
 homework/
 ├── foundry.toml               # Foundry 工作区配置
-├── hw01_basics/               # 作业 1：Voting 投票合约 + 5 道算法实现
-│   ├── Voting.sol             # [待实现] 投票合约
-│   ├── Algorithms.sol         # [待实现] 5 道算法练习
-│   └── Homework01.t.sol       # 作业 1 自动化单元测试
-├── hw02_begging/              # 作业 2：讨饭合约 (BeggingContract)
-│   ├── BeggingContract.sol    # [待实现] 讨饭合约
-│   ├── BeggingContract.t.sol  # 作业 2 自动化单元测试
+├── hw01_basics/               # 作业 1：Voting 投票合约 + 5 道算法实现 [已完成]
+│   ├── Voting.sol             # 投票合约
+│   ├── Algorithms.sol         # 5 道算法练习
+│   └── Homework01.t.sol       # 作业 1 自动化单元测试 (9/9 通过)
+├── hw02_begging/              # 作业 2：讨饭合约 (BeggingContract) [已完成并部署]
+│   ├── BeggingContract.sol    # 讨饭合约 (含排行榜与提现)
+│   ├── BeggingContract.t.sol  # 作业 2 自动化单元测试 (6/6 通过)
 │   └── DeployBegging.s.sol    # Sepolia 测试网部署脚本
+│                              # 部署地址: 0x18a7b1281080dff9ca2147bbeb8028a8b47a9c50
+│                              # 部署Tx: 0xa8549b4f70ef5eb083abaa4ded9e8e06305516f51bf1c1a2a2e8c808d0f98c49
 └── hw03_nft_auction/          # 作业 3：NFT 拍卖市场大作业（ERC721 + Chainlink + UUPS）
     └── README.md              # 大作业任务目标与架构要求
 ```
