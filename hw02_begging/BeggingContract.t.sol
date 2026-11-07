@@ -91,7 +91,7 @@ contract BeggingContractTest is Test {
 
     function test_ReceiveFallbackDonation() public {
         vm.prank(alice);
-        (bool success, ) = address(begging).call{value: 0.8 ether}("");
+        (bool success,) = address(begging).call{value: 0.8 ether}("");
         assertTrue(success);
 
         assertEq(begging.getDonation(alice), 0.8 ether);

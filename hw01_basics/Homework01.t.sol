@@ -79,10 +79,14 @@ contract Homework01Test is Test {
 
     function test_MergeSortedArrays() public view {
         uint256[] memory a = new uint256[](3);
-        a[0] = 1; a[1] = 3; a[2] = 5;
+        a[0] = 1;
+        a[1] = 3;
+        a[2] = 5;
 
         uint256[] memory b = new uint256[](3);
-        b[0] = 2; b[1] = 4; b[2] = 6;
+        b[0] = 2;
+        b[1] = 4;
+        b[2] = 6;
 
         uint256[] memory merged = algo.mergeSortedArrays(a, b);
         assertEq(merged.length, 6);
@@ -96,7 +100,13 @@ contract Homework01Test is Test {
 
     function test_BinarySearch() public view {
         uint256[] memory arr = new uint256[](7);
-        arr[0] = 2; arr[1] = 5; arr[2] = 8; arr[3] = 12; arr[4] = 16; arr[5] = 23; arr[6] = 38;
+        arr[0] = 2;
+        arr[1] = 5;
+        arr[2] = 8;
+        arr[3] = 12;
+        arr[4] = 16;
+        arr[5] = 23;
+        arr[6] = 38;
 
         (bool found, uint256 index) = algo.binarySearch(arr, 16);
         assertTrue(found);
@@ -110,7 +120,7 @@ contract Homework01Test is Test {
         assertTrue(found3);
         assertEq(index3, 6);
 
-        (bool notFound, ) = algo.binarySearch(arr, 99);
+        (bool notFound,) = algo.binarySearch(arr, 99);
         assertFalse(notFound);
     }
 }
