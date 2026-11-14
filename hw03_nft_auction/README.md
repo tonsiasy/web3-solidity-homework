@@ -80,11 +80,11 @@ forge test --match-path "hw03_nft_auction/*" -vvv
 
 ```bash
 # 1. 查询拍卖市场代理合约所有者
-cast call 0x0D4c70C66f422641843EFd44Ed8100e400aBa42B "owner()(address)" --rpc-url https://rpc.sepolia.org
+cast call 0x0D4c70C66f422641843EFd44Ed8100e400aBa42B "owner()(address)" --rpc-url https://sepolia.infura.io/v3/[填充infura API token]
 
 # 2. 查询 ERC1967 逻辑实现存储槽 (验证指向 0xBB473653D44c65176489D264e75e785cFadb8FB0)
-cast storage 0x0D4c70C66f422641843EFd44Ed8100e400aBa42B 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc --rpc-url https://rpc.sepolia.org
+cast storage 0x0D4c70C66f422641843EFd44Ed8100e400aBa42B 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc --rpc-url https://sepolia.infura.io/v3/[填充infura API token]
 
 # 3. 实时调用拍卖合约折算 1 个 ETH 当前的 USD 估值 (来自 Chainlink 喂价)
-cast call 0x0D4c70C66f422641843EFd44Ed8100e400aBa42B "getEthValueInUsd(uint256)(uint256)" 1000000000000000000 --rpc-url https://rpc.sepolia.org
+cast call 0x0D4c70C66f422641843EFd44Ed8100e400aBa42B "getEthValueInUsd(uint256)(uint256)" 1000000000000000000 --rpc-url https://sepolia.infura.io/v3/[填充infura API token]
 ```
